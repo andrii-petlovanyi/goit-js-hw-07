@@ -27,9 +27,6 @@ function createGalleryMarkup(galleryItems) {
 }
 
 function onImgZoomClick(event) {
-  event.preventDefault();
-  event.stopPropagation();
-
   const isImg = event.target.classList.contains("gallery__image");
 
   if (!isImg) {
@@ -40,6 +37,8 @@ function onImgZoomClick(event) {
 }
 
 function zoomImg(event) {
+  
+  event.preventDefault();
   const imgZoomLink = event.target.dataset.source;
   const instance = basicLightbox.create(`
         <img src="${imgZoomLink}" width="800" height="600">
