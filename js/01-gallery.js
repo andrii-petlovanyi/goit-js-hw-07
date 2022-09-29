@@ -37,20 +37,19 @@ function onImgZoomClick(event) {
 }
 
 function zoomImg(event) {
-  
   event.preventDefault();
   const imgZoomLink = event.target.dataset.source;
   const instance = basicLightbox.create(`
-        <img src="${imgZoomLink}" width="800" height="600">
+        <img src="${imgZoomLink}" width="1280">
     `);
 
   instance.show();
-  window.addEventListener("keypress", closeImgZoomClock);
+  window.addEventListener("keypress", closeImgZoomClick);
 
-  function closeImgZoomClock(event) {
+  function closeImgZoomClick(event) {
     if (event.code == "Escape") {
       instance.close();
-      window.removeEventListener("keypress", closeImgZoomClock);
+      window.removeEventListener("keypress", closeImgZoomClick);
     }
   }
 }
