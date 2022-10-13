@@ -44,7 +44,7 @@ function zoomImg(event) {
     `);
 
   instance.show();
-  window.addEventListener("keypress", closeImgZoomClick);
+  window.addEventListener("keydown", closeImgZoomClick);
 
   function closeImgZoomClick(event) {
     if (event.code == "Escape") {
