@@ -49,7 +49,7 @@ function zoomImg(event) {
   function closeImgZoomClick(event) {
     if (event.code == "Escape") {
       instance.close();
-      window.removeEventListener("keypress", closeImgZoomClick);
+      window.removeEventListener("keydown", closeImgZoomClick);
     }
   }
 }
