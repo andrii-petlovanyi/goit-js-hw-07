@@ -39,17 +39,25 @@ function onImgZoomClick(event) {
 function zoomImg(event) {
   event.preventDefault();
   const imgZoomLink = event.target.dataset.source;
-  const instance = basicLightbox.create(`
+  const instance = basicLightbox.create(
+    `
         <img src="${imgZoomLink}" width="1280">
-    `);
+    `,
+    {
+      onClose: () => {
+        window.removeEventListener("keydown", closeImgZoomClick);
+      },
+    }
+  );
 
-  instance.show();
   window.addEventListener("keydown", closeImgZoomClick);
 
+  instance.show();
+
   function closeImgZoomClick(event) {
+    console.log(event.code);
     if (event.code == "Escape") {
       instance.close();
-      window.removeEventListener("keydown", closeImgZoomClick);
     }
   }
 }
